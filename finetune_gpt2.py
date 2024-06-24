@@ -1,9 +1,14 @@
+import os
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from transformers import TextDataset, DataCollatorForLanguageModeling
 from transformers import Trainer, TrainingArguments
 
-def finetune(model_name,text_file,model_dir,epochs=1,batch_size=8):
 
+
+def finetune(model_name,text_file,model_dir,epochs=1,batch_size=8):
+    
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
     # Load GPT-2 model and tokenizer
     model = GPT2LMHeadModel.from_pretrained(model_name)
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
