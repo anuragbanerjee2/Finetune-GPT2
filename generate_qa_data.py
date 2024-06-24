@@ -45,7 +45,7 @@ def get_qa_pairs_from_papers(folder_path,page_pairs = 1):
 def json_to_text(j):
     data = ''
     for pair in j:
-        data+='[Q]'+pair['question']+' [A]'+pair['answer']+'\n'
+        data+='[Q] '+pair['question']+' [A] '+pair['answer']+'\n'
     return data
 
 def papers_to_data(folder_path,output_file,page_pairs):
