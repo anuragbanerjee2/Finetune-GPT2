@@ -6,7 +6,7 @@ class Inference:
         self.model = AutoModelForCausalLM.from_pretrained(model_path)
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
 
-    def get_answer(self,query, temperature=0, max_length=100):
+    def get_answer(self,query, temperature=0.1, max_length=100):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
 
         gen_tokens = self.model.generate(
