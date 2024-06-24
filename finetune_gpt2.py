@@ -21,7 +21,8 @@ def finetune(model_name,text_file,model_dir,epochs=1,batch_size=8):
     
     # Create data collator for language modeling
     data_collator = DataCollatorForLanguageModeling(
-        tokenizer=tokenizer,mlm=False)
+        tokenizer=tokenizer,
+        mlm=False)
 
     # Set training arguments
     training_args = TrainingArguments(
